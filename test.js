@@ -10,18 +10,18 @@ var outsideClick = function (e) {
   }
 };
 
-document.ready(function () {
+document.addEventListener( "DOMContentLoaded" ,function () {
   document
     .querySelector(".custmonDropDwon")
-    .addEventListener(click, function (e) {
+    .addEventListener("click", function (e) {
       if (
         e.target.classList.contains("crossString") ||
-        e.target.classList.includes("bowiro")
+        e.target.classList.contains("bowiro")
       ) {
         return false;
       }
 
-      if (e.target.is("a")) {
+      if (e.target.tagName === "A") {
         return true;
       }
 
@@ -59,7 +59,7 @@ document.ready(function () {
     .querySelector(".basic_banner_read_btn")
     .addEventListener(click, function () {
       if (basic_banner_read_btn == false) {
-        this.text("Read Less");
+        this.textContent = "Read Less";
         document.querySelector(".basic_banner_text").slideToggle(500);
         basic_banner_read_btn = true;
       } else {
@@ -78,8 +78,8 @@ document.ready(function () {
   });
 
   document.querySelector(".closeIcon").click(function () {
-    document.querySelector(".customPopup").removeClass("active");
-    document.querySelector(".commonPopup").removeClass("active");
+    document.querySelector(".customPopup").classList.remove("active");
+    document.querySelector(".commonPopup").classList.remove("active");
 
     if (!document.querySelector(".headerMain").classList.contains("active")) {
       document.body.style.overflow = "auto";
@@ -99,3 +99,4 @@ document.ready(function () {
     }
   });
 });
+
