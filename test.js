@@ -1,9 +1,9 @@
 var outsideClick = function (e) {
   var container = document.querySelector(".customDrp");
   if (
-    !container.is(e.target) &&
-    container.has(e.target).length === 0 &&
-    container.is(":visible")
+    !container.contains(e.target) &&
+    container.querySelector(e.target).length === 0 &&
+    container.classList.contains("active")
   ) {
     container.classList.remove("active");
     document.removeEventListener("click", outsideClick);
